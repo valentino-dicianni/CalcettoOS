@@ -4,23 +4,23 @@
 
 Autore: Valentino Di Cianni
 
-###Tema
-L’obiettivo del progetto è sviluppare un simulatore di una partita di calcetto.
+##Tema
+L’obiettivo del progetto è sviluppare un simulatore di una partita di calcetto.
 Questo documento descrive alcuni dettagli per l’implementazione, 
-sui quali è però possibile elaborare soluzioni personali, usando tutto il materiale visto durante il laboratorio.
+sui quali è però possibile elaborare soluzioni personali, usando tutto il materiale visto durante il laboratorio.
 I progetti verranno valutati in base alla correttezza, completezza, eleganza e chiarezza del codice,
-creatività e, ovviamente, alla sensatezza delle soluzioni adottate. 
-Il punteggio massimo di un esame di laboratorio sarà 3 punti. Il voto è individuale, anche nel caso di gruppi.
+creatività e, ovviamente, alla sensatezza delle soluzioni adottate. 
+Il punteggio massimo di un esame di laboratorio sarà 3 punti. Il voto è individuale, anche nel caso di gruppi.
 Valgono infine tutte le regole illustrate durante il corso e descritte nei documenti pubblicati su I-Learn.
 
-###File di configurazione:
+##File di configurazione:
 
 Il progetto deve utilizzare un file di configurazione, contenente almeno i seguenti elementi:
 1. Durata partita in secondi.
 2. Parametri di “dinamica partita”, con valori da 1 a 100:
-    - 2.1. goal: probabilità di successo di tiro (goal, appunto);
-    - 2.2. infortunio: probabilità che un giocatore si infortuni durante una “giocata” descritta in seguito;
-    - 2.3.dribbling: probabilità di riuscire ad effettuare un dribbling e di continuare una “giocata”, descritta in seguito.
+    - 2.1. goal: probabilità di successo di tiro (goal, appunto);
+    - 2.2. infortunio: probabilità che un giocatore si infortuni durante una “giocata” descritta in seguito;
+    - 2.3.dribbling: probabilità di riuscire ad effettuare un dribbling e di continuare una “giocata”, descritta in seguito.
 
 Questi parametri agiscono sul processo “fato”, anch’esso descritto in seguito.
 
@@ -37,8 +37,8 @@ coefficienti di “dinamica partita" valorizzati nel file di configurazione).
 
 La coda deve essere usata per scambio messaggi privato tra “giocatore" e “fato” usando adeguatamente il campo msgtype.
 
-Il pallone è un semaforo: tutti i giocatori cercano continuamente (in un loop) di accedervi. Chi riesce ad accedere
-“possiede il pallone” e può dedicarsi alla “giocata”, cioè la generazione casuale di uno dei seguenti eventi:
+Il pallone è un semaforo: tutti i giocatori cercano continuamente (in un loop) di accedervi. Chi riesce ad accedere
+“possiede il pallone” e può dedicarsi alla “giocata”, cioè la generazione casuale di uno dei seguenti eventi:
 
 1. infortunio -> messaggio inviato a“fato”,che risponde 0 o 1 per segnalare la morte del processo e liberazione slot su
    semaforo associato a relativa squadra che ricrea un nuovo processo giocatore da sostituire (il valore deve sempre
@@ -49,7 +49,7 @@ Il pallone è un semaforo: tutti i giocatori cercano continuamente (in un loop)
    il punteggio della partita.
 
 3. dribbling -> come per il tiro, messaggio inviato a “fato” che risponde con 1 o 0 per indicare se riuscito oppure no: 
-   se è riuscito, si cicla nuovamente per un nuovo tentativo di tiro o di infortunio o di dribbling, altrimenti viene 
+   se è riuscito, si cicla nuovamente per un nuovo tentativo di tiro o di infortunio o di dribbling, altrimenti viene 
    liberata la risorsa “pallone" e tutti gli altri giocatori possono accedervi (essendo in loop continuo di tentativo 
    di accesso al semaforo).
 
