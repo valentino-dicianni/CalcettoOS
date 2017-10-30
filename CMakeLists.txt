@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.7)
+project(CalcettoOS)
+set(CMAKE_BUILD_TYPE distribution)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+set(CMAKE_C_STANDARD 99)
+
+set(CalcettoOSManager programManager.c common.c header.h)
+set(ARBITRO arbitro.c common.c header.h)
+set(FATO fato.c common.c header.h)
+set(SQUADRA squadra.c common.c header.h)
+set(GIOCATORE giocatore.c  common.c header.h)
+add_executable(launcher ${CalcettoOSManager})
+add_executable(Fato ${FATO})
+add_executable(Squadra ${SQUADRA})
+add_executable(Giocatore ${GIOCATORE})
+add_executable(Arbitro ${ARBITRO})
