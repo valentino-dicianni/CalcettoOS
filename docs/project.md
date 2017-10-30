@@ -4,7 +4,7 @@
 
 Autore: Valentino Di Cianni
 
-##Tema
+#Tema
 L’obiettivo del progetto è sviluppare un simulatore di una partita di calcetto.
 Questo documento descrive alcuni dettagli per l’implementazione, 
 sui quali è però possibile elaborare soluzioni personali, usando tutto il materiale visto durante il laboratorio.
@@ -13,7 +13,7 @@ creatività e, ovviamente, alla sensatezza delle soluzioni adottate.
 Il punteggio massimo di un esame di laboratorio sarà 3 punti. Il voto è individuale, anche nel caso di gruppi.
 Valgono infine tutte le regole illustrate durante il corso e descritte nei documenti pubblicati su I-Learn.
 
-##File di configurazione:
+#File di configurazione:
 
 Il progetto deve utilizzare un file di configurazione, contenente almeno i seguenti elementi:
 1. Durata partita in secondi.
@@ -24,7 +24,7 @@ Il progetto deve utilizzare un file di configurazione, contenente almeno i segue
 
 Questi parametri agiscono sul processo “fato”, anch’esso descritto in seguito.
 
-###Funzionamento
+#Funzionamento
 
 Tutto comincia da un processo “generatore” o “arbitro”, che genera due processi “squadra” A e B, un processo “fato”,
 e memorizza il punteggio corrente. 
